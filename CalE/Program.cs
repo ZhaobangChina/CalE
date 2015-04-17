@@ -60,19 +60,18 @@ namespace CalE
 
         static sbyte[] Add(sbyte[] a, sbyte[] b)
         {
-            sbyte[] c = new sbyte[Math.Min(a.LongCount(), b.LongCount())];
             long i;
-            for (i = c.LongCount()-1; i>0; i--)
+            for (i = a.LongCount()-1; i>0; i--)
             {
-                c[i] += (sbyte)(a[i] + b[i]);
-                if(c[i]>9)
+                a[i] += (sbyte)(a[i] + b[i]);
+                if(a[i]>9)
                 {
-                    c[i] -= 10;
-                    c[i - 1]++;
+                    a[i] -= 10;
+                    a[i - 1]++;
                 }
             }
-            c[0] += (sbyte)(a[0] + b[0]);
-            return c;
+            a[0] += (sbyte)(a[0] + b[0]);
+            return a;
         }
 
         static sbyte[] Minus(sbyte[] a, sbyte[] b)
